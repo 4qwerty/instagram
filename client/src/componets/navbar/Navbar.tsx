@@ -1,27 +1,42 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 
-export default function Navbar() {
-
+export default function Navbar(props: any) {
     return (
         <View style={styles.buttonBox}>
-            <TouchableOpacity onPress={()=>{console.log("you clicked home")}}>
+            <TouchableOpacity
+                onPress={() => {
+                    props.navigation.navigate('Homepage');
+                }}
+            >
                 <Image source={require('../../assets/icons/home.png')}/>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={()=>{console.log("you clicked search")}}>
+            <TouchableOpacity
+                onPress={()=>{console.log("you clicked search")}}
+            >
                 <Image source={require('../../assets/icons/search.png')}/>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={()=>{console.log("you clicked add")}}>
+            <TouchableOpacity
+                onPress={() => {
+                    props.navigation.navigate('CreatePost');
+                }}
+            >
                 <Image source={require('../../assets/icons/add.png')}/>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={()=>{console.log("you clicked like")}}>
+            <TouchableOpacity
+                onPress={()=>{console.log("you clicked like")}}
+            >
                 <Image source={require('../../assets/icons/like.png')}/>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={()=>{console.log("you clicked icon")}}>
+            <TouchableOpacity
+                onPress={() => {
+                    props.navigation.navigate('ProfilePage');
+                }}
+            >
                 <Image source={require('../../assets/icons/Ellipse.png')}/>
             </TouchableOpacity>
         </View>

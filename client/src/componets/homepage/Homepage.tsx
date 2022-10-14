@@ -1,8 +1,12 @@
-import React, {useEffect, useState} from 'react';
-import {ScrollView, StyleSheet, Text, View} from "react-native";
+import React from 'react';
+import {StyleSheet, Text, View} from "react-native";
 import Navbar from "../navbar/Navbar";
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {StackParamList} from "../../../App";
 
-export default function Homepage() {
+export type Props = NativeStackScreenProps<StackParamList, 'Homepage'>;
+
+export default function Homepage(props: Props) {
 
     return (
         <View style={styles.body}>
@@ -14,7 +18,7 @@ export default function Homepage() {
                 </View>
 
                 <View style={styles.navbar}>
-                    <Navbar/>
+                    <Navbar {...props}/>
                 </View>
             </View>
         </View>
