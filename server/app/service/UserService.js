@@ -26,14 +26,6 @@ class UserService {
         return updatedUser;
     }
 
-    async updateFields(post) {
-        if (!post._id) {
-            throw new Error('ID not specified')
-        }
-        const updatedUser = await User.findByIdAndUpdate(post._id, post, {new: true})
-        return updatedUser;
-    }
-
     async delete(id) {
         if (!id) {
             throw new Error('ID not specified')

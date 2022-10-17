@@ -1,6 +1,7 @@
 import Router from "express";
 import AuthController from "../controllers/AuthController.js";
 import {check} from "express-validator";
+
 const authRouter = new Router()
 
 authRouter.post('/registration', [

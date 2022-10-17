@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken"
-const {secret} = require('../../config.js')
+import secret from "../../config.js"
 
 module.exports = function (req, res, next) {
     if (req.method === "OPTIONS") {
@@ -11,7 +11,7 @@ module.exports = function (req, res, next) {
         if (!token) {
             return res.status(403).json({message: "User not authorized"})
         }
-        const decodedData = jwt.verify(token, secret)
+        const decodedData = jwt.verify(token, secret.code)
         req.user = decodedData
         next()
     } catch (e) {

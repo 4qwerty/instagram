@@ -1,14 +1,14 @@
 import Post from "../models/Post.js";
 
 class PostService {
-    async create(user) {
-        const createdUser = await Post.create({...user});
-        return createdUser;
+    async create(post) {
+        const createdPost = await Post.create({...post});
+        return createdPost;
     }
 
     async getAll() {
-        const users = await Post.find();
-        return users;
+        const posts = await Post.find();
+        return posts;
     }
 }
 

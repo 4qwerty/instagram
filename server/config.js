@@ -2,4 +2,4 @@
 //     secret: "SECRET_KEY_RANDOM"
 // }
 
-export default {secret: "SECRET_KEY_RANDOM"}
+export default {code: "SECRET_KEY_RANDOM"}

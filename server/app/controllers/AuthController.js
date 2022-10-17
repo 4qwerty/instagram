@@ -4,12 +4,9 @@ import jwt from "jsonwebtoken"
 import {validationResult} from "express-validator";
 import secret from "../../config.js"
 
-const generateAccessToken = (id, roles) => {
-    const payload = {
-        id,
-        roles
-    }
-    return jwt.sign(payload, secret, {expiresIn: "24h"} )
+const generateAccessToken = (id) => {
+    const payload = { id }
+    return jwt.sign(payload, secret.code, {expiresIn: "24h"} )
 }
 
 class AuthController {
@@ -54,4 +51,4 @@ class AuthController {
     }
 }
 
-export default AuthController;
+export default new AuthController();
