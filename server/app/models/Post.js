@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, {Schema} from "mongoose";
 
 const Post = new mongoose.Schema({
     createdAt: {
@@ -6,7 +6,7 @@ const Post = new mongoose.Schema({
         default: Date.now
     },
     message: {type: String},
-    userId: {type: String},
+    userId: {type: Schema.Types.ObjectId, ref: "User"},
     imageUrl: {type: String}
 })
 

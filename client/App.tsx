@@ -30,8 +30,8 @@ export default function App() {
                     options={{ title: 'Instagram' }}
                 />
                 <Stack.Screen
-                   name='CreatePost'
-                   component={CreatePost}
+                    name='CreatePost'
+                    component={CreatePost}
                 />
                 <Stack.Screen
                     name='ProfilePage'

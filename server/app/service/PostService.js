@@ -10,6 +10,7 @@ class PostService {
         const posts = await Post.find();
         return posts;
     }
+
 }
 
 

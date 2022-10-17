@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, {Schema} from 'mongoose';
 
 const User = new mongoose.Schema({
     email: {type: String},
@@ -9,7 +9,7 @@ const User = new mongoose.Schema({
     avatarUrl: {type: String},
     phone: {type: String},
     gender: {type: String},
-    post: {type: String, ref: 'Post'},
+    posts: [{type: Schema.Types.ObjectId, ref: 'Post'}],
  })
 
 export default mongoose.model('User', User)

@@ -773,13 +773,6 @@
     "exec-sh" "^0.3.2"
     "minimist" "^1.2.0"
 
-"@egjs/hammerjs@^2.0.17":
-  "integrity" "sha512-XQsZgjm2EcVUiZQf11UBJQfmZeEmOW8DpI1gsFeln6w0ae0ii4dMQEQ0kjl6DspdWX1aGY1/loyXnP0JS06e/A=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/@egjs/hammerjs/-/hammerjs-2.0.17.tgz"
-  "version" "2.0.17"
-  dependencies:
-    "@types/hammerjs" "^2.0.36"
-
 "@eslint/eslintrc@^0.4.3":
   "integrity" "sha512-J6KFFz5QCYUJq3pf0mjEcCJVERbzv71PUIDczuh9JkwGEzced6CO5ADLHB1rbf/+oPBtoPfMYNOpGDzCANlbXw=="
   "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/@eslint/eslintrc/-/eslintrc-0.4.3.tgz"
@@ -1059,9 +1052,9 @@
   "version" "1.4.14"
 
 "@jridgewell/trace-mapping@^0.3.9":
-  "integrity" "sha512-LCQ+NeThyJ4k1W2d+vIKdxuSt9R3pQSZ4P92m7EakaYuXcVWbHuT5bjNcqLd4Rdgi6xYWYDvBJZJLZSLanjDcA=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/@jridgewell/trace-mapping/-/trace-mapping-0.3.16.tgz"
-  "version" "0.3.16"
+  "integrity" "sha512-MCNzAp77qzKca9+W/+I0+sEpaUnZoeasnghNeVc41VZCEKaCH73Vq3BZZ/SzWIgrqE4H4ceI+p+b6C0mHf9T4g=="
+  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/@jridgewell/trace-mapping/-/trace-mapping-0.3.17.tgz"
+  "version" "0.3.17"
   dependencies:
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
@@ -1312,7 +1305,7 @@
     "@react-navigation/elements" "^1.3.6"
     "warn-once" "^0.1.0"
 
-"@react-navigation/native@^6.0.0", "@react-navigation/native@^6.0.13":
+"@react-navigation/native@^6.0.0":
   "integrity" "sha512-CwaJcAGbhv3p3ECablxBkw8QBCGDWXqVRwQ4QbelajNW623m3sNTC9dOF6kjp8au6Rg9B5e0KmeuY0xWbPk79A=="
   "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/@react-navigation/native/-/native-6.0.13.tgz"
   "version" "6.0.13"
@@ -1328,15 +1321,6 @@
   "version" "6.1.3"
   dependencies:
     "nanoid" "^3.1.23"
-
-"@react-navigation/stack@^6.3.2":
-  "integrity" "sha512-wb8koMp4OTrG5geOqEFPDatTyl8dsSyRBHN4h0wzgNT29V/JjkS3LYwkGLLfUmMfeLXFyIfEPILAjYLFmnk3dA=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/@react-navigation/stack/-/stack-6.3.2.tgz"
-  "version" "6.3.2"
-  dependencies:
-    "@react-navigation/elements" "^1.3.6"
-    "color" "^4.2.3"
-    "warn-once" "^0.1.0"
 
 "@sideway/address@^4.1.3":
   "integrity" "sha512-7vwq+rOHVWjyXxVlR76Agnvhy8I9rpzjosTESvmhNeXOXdZZB15Fl+TI9x1SiHZH5Jv2wTGduSxFDIaq0m3DUw=="
@@ -1424,11 +1408,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/hammerjs@^2.0.36":
-  "integrity" "sha512-ewXv/ceBaJprikMcxCmWU1FKyMAQ2X7a9Gtmzw8fcg2kIePI1crERDM818W+XYrxqdBBOdlf2rm137bU+BltCA=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/@types/hammerjs/-/hammerjs-2.0.41.tgz"
-  "version" "2.0.41"
-
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
   "integrity" "sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g=="
   "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.4.tgz"
@@ -1462,9 +1441,9 @@
   "version" "7.0.11"
 
 "@types/node@*":
-  "integrity" "sha512-WdlVphvfR/GJCLEMbNA8lJ0lhFNBj4SW3O+O5/cEGw9oYrv0al9zTwuQsq+myDUXgNx2jgBynoVgZ2MMJ6pbow=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/@types/node/-/node-18.8.4.tgz"
-  "version" "18.8.4"
+  "integrity" "sha512-IOXCvVRToe7e0ny7HpT/X9Rb2RYtElG1a+VshjwT00HxrM2dWBApHQoqsI6WiY7Q03vdf2bCrIGzVrkF/5t10w=="
+  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/@types/node/-/node-18.11.0.tgz"
+  "version" "18.11.0"
 
 "@types/normalize-package-data@^2.4.0":
   "integrity" "sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw=="
@@ -1482,9 +1461,9 @@
   "version" "15.7.5"
 
 "@types/react-native@^0.70.4":
-  "integrity" "sha512-z5tKfblHLG6jts2AQcioDw4N+F2EzflO9n495yNyqyMYRkSIVTLX64MHBeqMp5wfOY5mshy0GsOgnFSXrXKQSg=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/@types/react-native/-/react-native-0.70.4.tgz"
-  "version" "0.70.4"
+  "integrity" "sha512-Z+NdP5EB1qGSHPSOcsrXqxXrxlFyp/GBllajUIEQ0+XVSFd1l/B+nmHBvACiZvDwRVE/l2hL2pBWeOUPi2C1JA=="
+  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/@types/react-native/-/react-native-0.70.5.tgz"
+  "version" "0.70.5"
   dependencies:
     "@types/react" "*"
 
@@ -1495,7 +1474,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*":
+"@types/react@*", "@types/react@^18.0.21":
   "integrity" "sha512-7QUCOxvFgnD5Jk8ZKlUAhVcRj7GuJRjnjjiY/IUBWKgOlnvDvTMLD4RTF7NPyVmbRhNrbomZiOepg7M/2Kj1mA=="
   "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/@types/react/-/react-18.0.21.tgz"
   "version" "18.0.21"
@@ -2240,9 +2219,9 @@
   "version" "6.3.0"
 
 "caniuse-lite@^1.0.30001400":
-  "integrity" "sha512-oIs7+JL3K9JRQ3jPZjlH6qyYDp+nBTCais7hjh0s+fuBwufc7uZ7hPYMXrDOJhV360KGMTcczMRObk0/iMqZRg=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/caniuse-lite/-/caniuse-lite-1.0.30001418.tgz"
-  "version" "1.0.30001418"
+  "integrity" "sha512-OnyeJ9ascFA9roEj72ok2Ikp7PHJTKubtEJIQ/VK3fdsS50q4KWy+Z5X0A1/GswEItKX0ctAp8n4SYDE7wTu6A=="
+  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/caniuse-lite/-/caniuse-lite-1.0.30001420.tgz"
+  "version" "1.0.30001420"
 
 "capture-exit@^2.0.0":
   "integrity" "sha512-PiT/hQmTonHhl/HFGN+Lx3JJUznrVYJ3+AQsnthneZbvW7x+f08Tk7yLJTLEOUvBTbduLeeBkxEaYXUOUrRq6g=="
@@ -2319,15 +2298,6 @@
     "strip-ansi" "^6.0.0"
     "wrap-ansi" "^6.2.0"
 
-"cliui@^7.0.2":
-  "integrity" "sha512-OcRE68cOsVMXp1Yvonl/fzkQOyjLSu/8bhPDfQt0e0/Eb283TKP20Fs2MqoPsr9SwA595rRCA+QMzYc9nBP+JQ=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/cliui/-/cliui-7.0.4.tgz"
-  "version" "7.0.4"
-  dependencies:
-    "string-width" "^4.2.0"
-    "strip-ansi" "^6.0.0"
-    "wrap-ansi" "^7.0.0"
-
 "clone-deep@^4.0.1":
   "integrity" "sha512-neHB9xuzh/wk0dIHweyAXv2aPGZIVk3pLMe+/RNzINf17fe0OG96QroktYAUm7SM1PBnzTabaLboqqxDyMU+SQ=="
   "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/clone-deep/-/clone-deep-4.0.1.tgz"
@@ -2374,7 +2344,7 @@
   dependencies:
     "color-name" "~1.1.4"
 
-"color-name@^1.0.0", "color-name@~1.1.4":
+"color-name@~1.1.4":
   "integrity" "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA=="
   "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/color-name/-/color-name-1.1.4.tgz"
   "version" "1.1.4"
@@ -2383,22 +2353,6 @@
   "integrity" "sha512-72fSenhMw2HZMTVHeCA9KCmpEIbzWiQsjN+BHcBbS9vr1mtt+vJjPdksIBNUmKAW8TFUDPJK5SUU3QhE9NEXDw=="
   "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/color-name/-/color-name-1.1.3.tgz"
   "version" "1.1.3"
-
-"color-string@^1.9.0":
-  "integrity" "sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/color-string/-/color-string-1.9.1.tgz"
-  "version" "1.9.1"
-  dependencies:
-    "color-name" "^1.0.0"
-    "simple-swizzle" "^0.2.2"
-
-"color@^4.2.3":
-  "integrity" "sha512-1rXeuUUiGGrykh+CeBdu5Ie7OJwinCgQY0bc7GCRxy5xVHy+moaqkpL/jqQq0MtQOeYcrqEz4abc5f0KtU7W4A=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/color/-/color-4.2.3.tgz"
-  "version" "4.2.3"
-  dependencies:
-    "color-convert" "^2.0.1"
-    "color-string" "^1.9.0"
 
 "colorette@^1.0.7":
   "integrity" "sha512-Y2oEozpomLn7Q3HFP7dpww7AtMJplbM9lGZP6RDfHqmbeRjiwRg4n6VM6j4KLmRke85uWEI7JqF17f3pqdRA0g=="
@@ -2594,9 +2548,9 @@
   "version" "1.2.0"
 
 "decimal.js@^10.2.1":
-  "integrity" "sha512-F29o+vci4DodHYT9UrR5IEbfBw9pE5eSapIJdTqXK5+6hq+t8VRxwQyKlW2i+KDKFkkJQRvFyI/QXD83h8LyQw=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/decimal.js/-/decimal.js-10.4.1.tgz"
-  "version" "10.4.1"
+  "integrity" "sha512-ic1yEvwT6GuvaYwBLLY6/aFFgjZdySKTE8en/fkU3QICTmRtgtSlFn0u0BXN06InZwtfCelR7j8LRiDI/02iGA=="
+  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/decimal.js/-/decimal.js-10.4.2.tgz"
+  "version" "10.4.2"
 
 "decode-uri-component@^0.2.0":
   "integrity" "sha512-hjf+xovcEn31w/EUYdTXQh/8smFL/dzYjohQGEIgjyNavaJfBY2p5F527Bo1VPATxv0VYTUC2bOcXvqFwk78Og=="
@@ -2724,9 +2678,9 @@
   "version" "1.1.1"
 
 "electron-to-chromium@^1.4.251":
-  "integrity" "sha512-xs7vEuSZ84+JsHSTFqqG0TE3i8EAivHomRQZhhcRvsmnjsh5C2KdhwNKf4ZRYtzq75wojpFyqb62m32Oam57wA=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/electron-to-chromium/-/electron-to-chromium-1.4.279.tgz"
-  "version" "1.4.279"
+  "integrity" "sha512-g6RQ9zCOV+U5QVHW9OpFR7rdk/V7xfopNXnyAamdpFgCHgZ1sjI8VuR1+zG2YG/TZk+tQ8mpNkug4P8FU0fuOA=="
+  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/electron-to-chromium/-/electron-to-chromium-1.4.283.tgz"
+  "version" "1.4.283"
 
 "emittery@^0.7.1":
   "integrity" "sha512-A8OG5SR/ij3SsJdWDJdkkSYUjQdCUx6APQXem0SaEePBSRg4eymGYwBkKo1Y6DU+af/Jn2dBQqDBvjnr9Vi8nQ=="
@@ -3313,9 +3267,9 @@
   "version" "0.121.0"
 
 "flow-parser@0.*":
-  "integrity" "sha512-Qnvihm7h4YDgFVQV2h0TcLE421D20/giBg93Dtobj+CHRnZ39vmsbDPM9IenUBtZuY0vWRiJp6slOv7dvmlKbg=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/flow-parser/-/flow-parser-0.188.2.tgz"
-  "version" "0.188.2"
+  "integrity" "sha512-9jxaqkeeARD//nhwDoN//j+EFcwzKJCGPtTQzUdKZdlZG3JmUdbV6XJFLD9sbWFPUmcCT1mblwILwdoq0mKWQw=="
+  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/flow-parser/-/flow-parser-0.190.0.tgz"
+  "version" "0.190.0"
 
 "for-in@^1.0.2":
   "integrity" "sha512-7EwmXrOjyL+ChxMhmG5lnW9MPt1aIeZEwKhQzoBUdTV0N3zuwWDZYVJatDvZ2OyzPUvdIAZDsCetk3coyMfcnQ=="
@@ -3409,7 +3363,7 @@
   "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/gensync/-/gensync-1.0.0-beta.2.tgz"
   "version" "1.0.0-beta.2"
 
-"get-caller-file@^2.0.1", "get-caller-file@^2.0.5":
+"get-caller-file@^2.0.1":
   "integrity" "sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg=="
   "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/get-caller-file/-/get-caller-file-2.0.5.tgz"
   "version" "2.0.5"
@@ -3776,11 +3730,6 @@
   "integrity" "sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg=="
   "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/is-arrayish/-/is-arrayish-0.2.1.tgz"
   "version" "0.2.1"
-
-"is-arrayish@^0.3.1":
-  "integrity" "sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/is-arrayish/-/is-arrayish-0.3.2.tgz"
-  "version" "0.3.2"
 
 "is-bigint@^1.0.1":
   "integrity" "sha512-zB9CruMamjym81i2JZ3UMn54PKGsQzsJeo6xvN3HJJ4CAsQNB6iRutp2To77OfCNuoxspsIhzaPoO1zyCEhFOg=="
@@ -5778,7 +5727,7 @@
     "kleur" "^3.0.3"
     "sisteransi" "^1.0.5"
 
-"prop-types@^15.7.2", "prop-types@^15.8.1":
+"prop-types@^15.8.1":
   "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
   "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/prop-types/-/prop-types-15.8.1.tgz"
   "version" "15.8.1"
@@ -5883,17 +5832,6 @@
     "jscodeshift" "^0.13.1"
     "nullthrows" "^1.1.1"
 
-"react-native-gesture-handler@>= 1.0.0":
-  "integrity" "sha512-Rnak7U4v3ZB+vjVghv5CvAGS+UfRLsXUq7Nq+FycloxZ7jUZjBo+7rPnt+EdTIE2zc2pKhQHIQKcD+IAPg2Scg=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/react-native-gesture-handler/-/react-native-gesture-handler-2.7.1.tgz"
-  "version" "2.7.1"
-  dependencies:
-    "@egjs/hammerjs" "^2.0.17"
-    "hoist-non-react-statics" "^3.3.0"
-    "invariant" "^2.2.4"
-    "lodash" "^4.17.21"
-    "prop-types" "^15.7.2"
-
 "react-native-gradle-plugin@^0.70.3":
   "integrity" "sha512-oOanj84fJEXUg9FoEAQomA8ISG+DVIrTZ3qF7m69VQUJyOGYyDZmPqKcjvRku4KXlEH6hWO9i4ACLzNBh8gC0A=="
   "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/react-native-gradle-plugin/-/react-native-gradle-plugin-0.70.3.tgz"
@@ -5909,26 +5847,18 @@
   "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/react-native-safe-area-context/-/react-native-safe-area-context-4.4.1.tgz"
   "version" "4.4.1"
 
-"react-native-screens@^3.18.1", "react-native-screens@>= 3.0.0":
-  "integrity" "sha512-GtEC1AbvpvtKDJldavuONF/hXW1aEZO7qz8SioyHrV9L9/nDiy+iTviMFmeEoix9KwmEHHxoYxc0xiDrFxKHyA=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/react-native-screens/-/react-native-screens-3.18.1.tgz"
-  "version" "3.18.1"
+"react-native-screens@^3.18.2", "react-native-screens@>= 3.0.0":
+  "integrity" "sha512-ANUEuvMUlsYJ1QKukEhzhfrvOUO9BVH9Nzg+6eWxpn3cfD/O83yPBOF8Mx6x5H/2+sMy+VS5x/chWOOo/U7QJw=="
+  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/react-native-screens/-/react-native-screens-3.18.2.tgz"
+  "version" "3.18.2"
   dependencies:
     "react-freeze" "^1.0.0"
     "warn-once" "^0.1.0"
 
-"react-native-vector-icons@^9.2.0":
-  "integrity" "sha512-wKYLaFuQST/chH3AJRjmOLoLy3JEs1JR6zMNgTaemFpNoXs0ztRnTxcxFD9xhX7cJe1/zoN5BpQYe7kL0m5yyA=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/react-native-vector-icons/-/react-native-vector-icons-9.2.0.tgz"
-  "version" "9.2.0"
-  dependencies:
-    "prop-types" "^15.7.2"
-    "yargs" "^16.1.1"
-
-"react-native@*", "react-native@0.70.2":
-  "integrity" "sha512-c0Usl1Lc4pApDI66wpHwX8SGBUqXouQ8Z8Q9gX4jBjnmO5E8Vmlv6IM0CWDqbX/tn+aKNHCBLqV5phnCqusGbw=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/react-native/-/react-native-0.70.2.tgz"
-  "version" "0.70.2"
+"react-native@*", "react-native@0.70.3":
+  "integrity" "sha512-EiJxOonyvpSWa3Eik7a6YAD6QU8lK2W9M/DDdYlpWmIlGLCd5110rIpEZjxttsyrohxlRJAYRgJ9Tx2mMXqtfw=="
+  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/react-native/-/react-native-0.70.3.tgz"
+  "version" "0.70.3"
   dependencies:
     "@jest/create-cache-key-function" "^27.0.1"
     "@react-native-community/cli" "9.1.3"
@@ -6061,9 +5991,9 @@
   "version" "1.4.2"
 
 "regenerator-runtime@^0.13.2", "regenerator-runtime@^0.13.4":
-  "integrity" "sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz"
-  "version" "0.13.9"
+  "integrity" "sha512-KepLsg4dU12hryUO7bp/axHAKvwGOCV0sGloQtpagJ12ai+ojVDqkeGSiRX1zlq+kjIMZ1t7gpze+26QqtdGqw=="
+  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/regenerator-runtime/-/regenerator-runtime-0.13.10.tgz"
+  "version" "0.13.10"
 
 "regex-not@^1.0.0", "regex-not@^1.0.2":
   "integrity" "sha512-J6SDjUgDxQj5NusnOtdFxDwN/+HWykR8GELwctJ7mdqhcyy1xEc4SRFHUXvxTp661YaVKAjfRLZ9cCqS6tn32A=="
@@ -6441,9 +6371,9 @@
   "version" "3.0.0"
 
 "shell-quote@^1.6.1", "shell-quote@^1.7.3":
-  "integrity" "sha512-Vpfqwm4EnqGdlsBFNmHhxhElJYrdfcxPThu+ryKS5J8L/fhAwLazFZtq+S+TWZ9ANj2piSQLGj6NQg+lKPmxrw=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/shell-quote/-/shell-quote-1.7.3.tgz"
-  "version" "1.7.3"
+  "integrity" "sha512-8o/QEhSSRb1a5i7TFR0iM4G16Z0vYB2OQVs4G3aAFXjn3T6yEx8AZxy1PgDF7I00LZHYA3WxaSYIf5e5sAX8Rw=="
+  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/shell-quote/-/shell-quote-1.7.4.tgz"
+  "version" "1.7.4"
 
 "shellwords@^0.1.1":
   "integrity" "sha512-vFwSUfQvqybiICwZY5+DAWIPLKsWO31Q91JSKl3UYv+K5c2QRPzn0qzec6QPu1Qc9eHYItiP3NdJqNVqetYAww=="
@@ -6463,13 +6393,6 @@
   "integrity" "sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ=="
   "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/signal-exit/-/signal-exit-3.0.7.tgz"
   "version" "3.0.7"
-
-"simple-swizzle@^0.2.2":
-  "integrity" "sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/simple-swizzle/-/simple-swizzle-0.2.2.tgz"
-  "version" "0.2.2"
-  dependencies:
-    "is-arrayish" "^0.3.1"
 
 "sisteransi@^1.0.5":
   "integrity" "sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg=="
@@ -7311,15 +7234,6 @@
     "string-width" "^4.1.0"
     "strip-ansi" "^6.0.0"
 
-"wrap-ansi@^7.0.0":
-  "integrity" "sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/wrap-ansi/-/wrap-ansi-7.0.0.tgz"
-  "version" "7.0.0"
-  dependencies:
-    "ansi-styles" "^4.0.0"
-    "string-width" "^4.1.0"
-    "strip-ansi" "^6.0.0"
-
 "wrappy@1":
   "integrity" "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ=="
   "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/wrappy/-/wrappy-1.0.2.tgz"
@@ -7376,11 +7290,6 @@
   "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/y18n/-/y18n-4.0.3.tgz"
   "version" "4.0.3"
 
-"y18n@^5.0.5":
-  "integrity" "sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/y18n/-/y18n-5.0.8.tgz"
-  "version" "5.0.8"
-
 "yallist@^4.0.0":
   "integrity" "sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A=="
   "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/yallist/-/yallist-4.0.0.tgz"
@@ -7393,11 +7302,6 @@
   dependencies:
     "camelcase" "^5.0.0"
     "decamelize" "^1.2.0"
-
-"yargs-parser@^20.2.2":
-  "integrity" "sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/yargs-parser/-/yargs-parser-20.2.9.tgz"
-  "version" "20.2.9"
 
 "yargs@^15.1.0", "yargs@^15.3.1", "yargs@^15.4.1":
   "integrity" "sha512-aePbxDmcYW++PaqBsJ+HYUFwCdv4LVvdnhBy78E57PIor8/OVvhMrADFFEDh8DHDFRv/O9i3lPhsENjO7QX0+A=="
@@ -7415,19 +7319,6 @@
     "which-module" "^2.0.0"
     "y18n" "^4.0.0"
     "yargs-parser" "^18.1.2"
-
-"yargs@^16.1.1":
-  "integrity" "sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw=="
-  "resolved" "https://repo.plus4u.net/operatorGate/repository/public-javascript/yargs/-/yargs-16.2.0.tgz"
-  "version" "16.2.0"
-  dependencies:
-    "cliui" "^7.0.2"
-    "escalade" "^3.1.1"
-    "get-caller-file" "^2.0.5"
-    "require-directory" "^2.1.1"
-    "string-width" "^4.2.0"
-    "y18n" "^5.0.5"
-    "yargs-parser" "^20.2.2"
 
 "yocto-queue@^0.1.0":
   "integrity" "sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q=="
