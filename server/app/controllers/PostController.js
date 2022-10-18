@@ -1,15 +1,26 @@
 import PostService from "../service/PostService.js";
 import User from "../models/User.js";
+import Post from "../models/Post.js";
 
 class PostController {
     async create(req, res) {
-        try {
-            const post = await PostService.create({...req.body, userId: req.params.id})
-
-            res.json(post)
-        } catch (e) {
-            res.status(500).json(e)
-        }
+        const post = new Post();
+        post.message = req.body.message;
+        post.imageUrl = req.body.imageUrl;
+        post.userId = req.params.id;
+        post.save()
+            .then(() => {
+                User.findOne({ _id: post.userId }, (err, user) => {
+                    if (user) {
+                        user.posts.push(post);
+                        user.save();
+                        res.json(post);
+                    }
+                });
+            })
+            .catch((error) => {
+                res.status(500).json({ error });
+            });
     }
 
     async getAll(req, res) {
