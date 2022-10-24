@@ -4,41 +4,31 @@ import {
     SafeAreaView,
     View,
     Image,
-    PermissionsAndroid,
     TouchableOpacity,
-    Text,
+    Text, TextInput, Alert,
 } from 'react-native';
-
+import storage from '@react-native-firebase/storage';
 import * as ImagePicker from 'react-native-image-picker';
 import {useCallback, useState} from 'react';
+import {Post} from "../../../models/Post";
 
 export default function CreatePost() {
-    const [response, setResponse] = React.useState<any>(null);
+    const [response, setResponse] = useState<any>(null);
+    const [inputValue, setInputValue] = useState('');
     const includeExtra = true;
 
-    const requestCameraPermission = async () => {
-        try {
-            const granted = await PermissionsAndroid.request(
-                PermissionsAndroid.PERMISSIONS.CAMERA,
-                {
-                    title: 'App Camera Permission',
-                    message: 'App needs access to your camera ',
-                    buttonNeutral: 'Ask Me Later',
-                    buttonNegative: 'Cancel',
-                    buttonPositive: 'OK',
-                },
-            );
-            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-                console.log('Camera permission given');
-            } else {
-                console.log('Camera permission denied');
-            }
-        } catch (err) {
-            console.warn(err);
-        }
-    };
+    const submitPost = () => {
+        const uploadUir = response.assets[0].uri
+        const fileName = uploadUir.substring(uploadUir.lastIndexOf('/') + 1);
+        const storageRef = storage().ref(`${fileName}`);
+        const task = storageRef.putFile(uploadUir);
 
-    requestCameraPermission();
+        task.on('state_changed', (taskSnapshot) => {
+            console.log(
+                `${taskSnapshot.bytesTransferred} transferred out of ${taskSnapshot.totalBytes}`,
+            );
+        })
+    }
 
     const onButtonPress = useCallback(
         (
@@ -54,8 +44,41 @@ export default function CreatePost() {
         [],
     );
 
+    const showAlert = () => {
+        Alert.alert(
+            "Success",
+            "Post created",
+        );
+    }
+
+    const userId = "634e5686898cb207636dc471"
+
+    const fetchPost = (data: Post) => {
+        fetch(`https://d604-185-244-169-55.eu.ngrok.io/posts/${userId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Success:', data);
+
+                submitPost()
+                setResponse('')
+                setInputValue('')
+                showAlert()
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
     return (
-        <SafeAreaView>
+        <SafeAreaView style={{
+            justifyContent: "center"
+        }}>
             <View style={styles.imageContainer}>
                 {response?.assets &&
                     response?.assets.map(({uri}: {uri: string}) => (
@@ -70,7 +93,6 @@ export default function CreatePost() {
                     ))
                 }
             </View>
-
 
             <View style={styles.buttonSetImageContainer}>
                 <TouchableOpacity
@@ -100,20 +122,29 @@ export default function CreatePost() {
                 </TouchableOpacity>
             </View>
 
+            <View style={styles.textAreaContainer} >
+                <TextInput
+                    style={styles.textArea}
+                    value={inputValue}
+                    onChangeText={(value) => setInputValue(value)}
+                    placeholder="Enter your post..."
+                    placeholderTextColor="grey"
+                    numberOfLines={10}
+                    multiline={true}
+                />
+            </View>
+
             <TouchableOpacity
                 style={styles.buttonCreatePostContainer}
-                onPress={() =>
-                    onButtonPress('capture', {
-                        saveToPhotos: true,
-                        mediaType: 'photo',
-                        includeBase64: false,
-                        includeExtra,
+                onPress={() => {
+                    fetchPost ({
+                        message : inputValue,
+                        imageUrl: response.assets[0].uri
                     })
-                }
+                }}
             >
                 <Text style={styles.buttonCreatePostText}>POST</Text>
             </TouchableOpacity>
-
         </SafeAreaView>
     );
 }
@@ -146,12 +177,22 @@ const styles = StyleSheet.create({
         alignSelf: "center",
     },
     imageContainer: {
-        width: 400,
+        width: 415,
         height: 400,
         backgroundColor: '#d9d7d7',
     },
     image: {
-        width: 370,
-        height: 370,
+        width: 415,
+        height: 400,
     },
+
+    textAreaContainer: {
+        borderColor: "#595959",
+        borderWidth: 1,
+        padding: 5
+    },
+    textArea: {
+        height: 125,
+        width: 200,
+    }
 });
