@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {ActivityIndicator, FlatList, ScrollView, StyleSheet, Text, View} from "react-native";
-import {User} from "../../../models/User";
+import {ActivityIndicator, FlatList, StyleSheet, View} from "react-native";
 import PostCard from "../postСard/PostСard";
 import {Post} from "../../../models/Post";
 
@@ -28,13 +27,13 @@ export default function PostList() {
     }
 
     return (
-    <FlatList
-        data={dataPosts}
-        renderItem={({item}) =>
-            <PostCard data={item}/>
-        }
-        keyExtractor={item => item?._id}
-    />
+        <FlatList
+            data={dataPosts}
+            renderItem={({item}) =>
+                <PostCard data={item}/>
+            }
+            keyExtractor={item => item?._id}
+        />
     );
 }
 

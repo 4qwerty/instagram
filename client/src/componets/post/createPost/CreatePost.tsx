@@ -17,17 +17,36 @@ export default function CreatePost() {
     const [inputValue, setInputValue] = useState('');
     const includeExtra = true;
 
-    const submitPost = () => {
+    const userId = "634e5686898cb207636dc471"
+
+    const submitPost = async (data: Post) => {
         const uploadUir = response.assets[0].uri
         const fileName = uploadUir.substring(uploadUir.lastIndexOf('/') + 1);
-        const storageRef = storage().ref(`${fileName}`);
-        const task = storageRef.putFile(uploadUir);
+        const storageRef = storage().ref(`photos/${fileName}`);
+        await storageRef.putFile(uploadUir);
+        const url = await storageRef.getDownloadURL()
+            .catch((error: any) => {
+            console.log(error)
+            });
 
-        task.on('state_changed', (taskSnapshot) => {
-            console.log(
-                `${taskSnapshot.bytesTransferred} transferred out of ${taskSnapshot.totalBytes}`,
-            );
+        await fetch(`https://d604-185-244-169-55.eu.ngrok.io/posts/${userId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({...data, imageUrl: url}),
         })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Success:', data);
+
+                setResponse('')
+                setInputValue('')
+                showAlert()
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
     }
 
     const onButtonPress = useCallback(
@@ -49,30 +68,6 @@ export default function CreatePost() {
             "Success",
             "Post created",
         );
-    }
-
-    const userId = "634e5686898cb207636dc471"
-
-    const fetchPost = (data: Post) => {
-        fetch(`https://d604-185-244-169-55.eu.ngrok.io/posts/${userId}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log('Success:', data);
-
-                submitPost()
-                setResponse('')
-                setInputValue('')
-                showAlert()
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
     }
 
     return (
@@ -136,10 +131,10 @@ export default function CreatePost() {
 
             <TouchableOpacity
                 style={styles.buttonCreatePostContainer}
-                onPress={() => {
-                    fetchPost ({
-                        message : inputValue,
-                        imageUrl: response.assets[0].uri
+                onPress={async () => {
+                    await submitPost ({
+                        _id: "",
+                        message: inputValue
                     })
                 }}
             >
