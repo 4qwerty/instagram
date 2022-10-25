@@ -11,19 +11,44 @@ import storage from '@react-native-firebase/storage';
 import * as ImagePicker from 'react-native-image-picker';
 import {useCallback, useState} from 'react';
 import {Post} from "../../../models/Post";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import jwt_decode from "jwt-decode";
+
+interface DecodedToken {
+    "exp": number,
+    "iat": number,
+    "id": string
+}
 
 export default function CreatePost() {
     const [response, setResponse] = useState<any>(null);
     const [inputValue, setInputValue] = useState('');
+    const [userId, setUserId] = useState('')
     const includeExtra = true;
 
-    const userId = "634e5686898cb207636dc471"
+    const getUserId = async () => {
+        try {
+            const token = await AsyncStorage.getItem('@storage_Key')
+            if (token != null) {
+                const decoded: DecodedToken = jwt_decode(token);
+                setUserId(decoded.id);
+            }
+
+        } catch(e) {
+            console.log(e)
+        }
+    }
+
+    getUserId() // переробити
 
     const submitPost = async (data: Post) => {
-        const uploadUir = response.assets[0].uri
+        const uploadUir = response.assets[0].uri;
         const fileName = uploadUir.substring(uploadUir.lastIndexOf('/') + 1);
         const storageRef = storage().ref(`photos/${fileName}`);
         await storageRef.putFile(uploadUir);
+
+        console.log(userId)
+
         const url = await storageRef.getDownloadURL()
             .catch((error: any) => {
             console.log(error)

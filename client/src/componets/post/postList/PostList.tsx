@@ -1,24 +1,27 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {ActivityIndicator, FlatList, StyleSheet, View} from "react-native";
 import PostCard from "../postСard/PostСard";
-import {Post} from "../../../models/Post";
+import posts from "../../../store/posts"
 
 export default function PostList() {
+    const postsData = posts.posts
 
-    const [dataPosts, setDataPosts] = useState<Post[]>([])
+    // useEffect(() => {
+    //     fetch('https://6aea-185-244-169-55.eu.ngrok.io/getAllPosts')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setDataPosts(data)
+    //         })
+    //         .catch(function(err) {
+    //             console.info(err);
+    //         });
+    // }, [])
 
     useEffect(() => {
-        fetch('https://6aea-185-244-169-55.eu.ngrok.io/getAllPosts')
-            .then(res => res.json())
-            .then(data => {
-                setDataPosts(data)
-            })
-            .catch(function(err) {
-                console.info(err);
-            });
+        posts.fetchPosts();
     }, [])
 
-    if (dataPosts.length === 0) {
+    if (postsData.length === 0) {
         return (
             <View style={[styles.container, styles.horizontal]}>
                 <ActivityIndicator size="large"/>
@@ -28,7 +31,7 @@ export default function PostList() {
 
     return (
         <FlatList
-            data={dataPosts}
+            data={postsData}
             renderItem={({item}) =>
                 <PostCard data={item}/>
             }

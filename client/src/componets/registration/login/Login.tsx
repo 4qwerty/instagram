@@ -33,7 +33,6 @@ export default function Login(props: Props) {
     const getData = async () => {
         try {
             const value = await AsyncStorage.getItem('@storage_Key')
-            console.log(value)
 
             if(value !== null) {
                 props.navigation.navigate('Homepage');
