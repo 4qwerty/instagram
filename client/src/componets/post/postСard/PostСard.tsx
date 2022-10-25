@@ -14,7 +14,7 @@ export default function PostCard(props: { data: Post; }) {
                         uri: dataPosts.imageUrl,
                     }}
                     style={{
-                        width: 400,
+                        width: 420,
                         height: 400
                     }}
                 />

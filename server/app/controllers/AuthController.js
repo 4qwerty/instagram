@@ -16,13 +16,13 @@ class AuthController {
             if (!errors.isEmpty()) {
                 return res.status(400).json({message: "Registration error", errors})
             }
-            const {username, password} = req.body;
+            const {username, email, fullName, password} = req.body;
             const candidate = await User.findOne({username})
             if (candidate) {
                 return res.status(400).json({message: "A user with the same name already exists"})
             }
             const hashPassword = bcrypt.hashSync(password, 5);
-            const user = new User({username, password: hashPassword})
+            const user = new User({username, email, fullName, password: hashPassword})
             await user.save()
             return res.json({message: "User successfully registered"})
         } catch (e) {
@@ -46,7 +46,7 @@ class AuthController {
             return res.json({token})
         } catch (e) {
             console.log(e)
-            res.status(400).json({message: 'Login error'})
+            res.status(400).json({message: 'login error'})
         }
     }
 }

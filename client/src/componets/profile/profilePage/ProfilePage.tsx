@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import Navbar from "../../navbar/Navbar";
 import {NativeStackScreenProps} from "@react-navigation/native-stack";
 import {StackParamList} from "../../../../App";

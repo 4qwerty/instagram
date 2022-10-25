@@ -29,7 +29,7 @@ export default function CreatePost() {
             console.log(error)
             });
 
-        await fetch(`https://d604-185-244-169-55.eu.ngrok.io/posts/${userId}`, {
+        await fetch(`https://6aea-185-244-169-55.eu.ngrok.io/posts/${userId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

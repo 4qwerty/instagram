@@ -8,7 +8,7 @@ export default function PostList() {
     const [dataPosts, setDataPosts] = useState<Post[]>([])
 
     useEffect(() => {
-        fetch('https://d604-185-244-169-55.eu.ngrok.io/getAllPosts')
+        fetch('https://6aea-185-244-169-55.eu.ngrok.io/getAllPosts')
             .then(res => res.json())
             .then(data => {
                 setDataPosts(data)
