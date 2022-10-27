@@ -23,7 +23,7 @@ export default function SingUp(props: Props) {
     }
 
     const fetchSinUp = (values: User) => {
-        fetch('https://6aea-185-244-169-55.eu.ngrok.io/auth/registration', {
+        fetch('https://d11b-185-244-169-80.eu.ngrok.io/auth/registration', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

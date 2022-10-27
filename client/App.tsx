@@ -5,8 +5,8 @@ import Homepage from './src/componets/homepage/Homepage'
 import CreatePost from "./src/componets/post/createPost/CreatePost";
 import ProfilePage from "./src/componets/profile/profilePage/ProfilePage";
 import ProfileEditing from "./src/componets/profile/profileEditing/ProfileEditing";
-import Login from "./src/componets/registration/login/Login";
-import SingUp from "./src/componets/registration/singUp/SingUp";
+import Login from "./src/componets/auth/login/Login";
+import SingUp from "./src/componets/auth/singUp/SingUp";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export type StackParamList = {

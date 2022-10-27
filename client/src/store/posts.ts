@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx'
 
-export interface CurrencyModel {
+export interface PostModel {
     _id: string,
     createdAt: string,
     message: string,
@@ -9,14 +9,14 @@ export interface CurrencyModel {
 }
 
 class Posts {
-    posts: CurrencyModel[] = []
+    posts: PostModel[] = []
 
     constructor() {
         makeAutoObservable(this)
     }
 
-    fetchPosts() {
-        fetch('https://6aea-185-244-169-55.eu.ngrok.io/getAllPosts')
+     async fetchPostsList() {
+        await fetch('https://d11b-185-244-169-80.eu.ngrok.io/getAllPosts')
             .then(res => res.json())
             .then(data => {
                 this.posts = (data)

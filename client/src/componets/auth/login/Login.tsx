@@ -4,6 +4,8 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {StackParamList} from "../../../../App";
 import {Formik} from "formik";
+import {observer} from "mobx-react-lite";
+import users from "../../../store/users";
 
 export type Props = NativeStackScreenProps<StackParamList, 'Login'>;
 
@@ -12,11 +14,12 @@ interface Login {
     password: string
 }
 
-export default function Login(props: Props) {
+const Login: React.FC<Props> = observer((props: Props) => {
     const storeData = async (value: string) => {
         try {
             await AsyncStorage.setItem('@storage_Key', value)
             await getData()
+            await users.getUserId()
         } catch (e) {
             showAlert()
             console.log(e)
@@ -43,7 +46,7 @@ export default function Login(props: Props) {
     }
 
     const fetchLogin = async (values: Login) => {
-        await fetch('https://6aea-185-244-169-55.eu.ngrok.io/auth/login', {
+        await fetch('https://d11b-185-244-169-80.eu.ngrok.io/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -128,7 +131,7 @@ export default function Login(props: Props) {
             </View>
         </View>
     );
-}
+})
 
 const styles = StyleSheet.create({
     conteiner: {
@@ -177,3 +180,5 @@ const styles = StyleSheet.create({
         marginBottom: 30,
     }
 })
+
+export default Login

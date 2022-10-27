@@ -2,23 +2,14 @@ import React, {useEffect} from 'react';
 import {ActivityIndicator, FlatList, StyleSheet, View} from "react-native";
 import PostCard from "../postСard/PostСard";
 import posts from "../../../store/posts"
+import {observer} from "mobx-react-lite";
 
-export default function PostList() {
+const PostList: React.FC = observer(() => {
     const postsData = posts.posts
 
-    // useEffect(() => {
-    //     fetch('https://6aea-185-244-169-55.eu.ngrok.io/getAllPosts')
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setDataPosts(data)
-    //         })
-    //         .catch(function(err) {
-    //             console.info(err);
-    //         });
-    // }, [])
-
     useEffect(() => {
-        posts.fetchPosts();
+        posts.fetchPostsList()
+            .catch(console.error);
     }, [])
 
     if (postsData.length === 0) {
@@ -38,7 +29,7 @@ export default function PostList() {
             keyExtractor={item => item?._id}
         />
     );
-}
+});
 
 const styles = StyleSheet.create({
     container: {
@@ -55,3 +46,5 @@ const styles = StyleSheet.create({
         flexDirection: "row",
     },
 })
+
+export default PostList

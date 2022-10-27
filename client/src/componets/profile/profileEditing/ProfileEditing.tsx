@@ -1,63 +1,79 @@
 import React from 'react';
-import {Button, StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
+import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import { Formik } from 'formik';
+import users from "../../../store/users";
+import {NativeStackScreenProps} from "@react-navigation/native-stack";
+import {StackParamList} from "../../../../App";
 
-export default function ProfileEditing() {
+export type Props = NativeStackScreenProps<StackParamList, 'ProfileEditing'>;
+
+export default function ProfileEditing(props: Props) {
+    const user = users.userData
+
     return (
         <Formik
-
             initialValues={{
-                name: 'Name',
-                bio: 'Bio',
-                email: 'Email',
-                gender: 'Gender'
-
+                username: user?.username,
+                fullName: user?.fullName,
+                bio: user?.bio,
+                email: user?.email,
             }}
-            onSubmit={values => console.log(values)}
+            onSubmit={(values) => {
+                users.putUsers(values)
+                    .catch(console.error);
+                props.navigation.navigate('ProfilePage')
+            }}
         >
             {({ handleChange, handleBlur, handleSubmit, values }) => (
                 <View>
-                    {/*<View style={styles.buttonEditProfileContainer}>*/}
-                    {/*    <TouchableOpacity*/}
-                    {/*        onPress={handleSubmit}*/}
-                    {/*        style={styles.buttonEditProfileContainer}*/}
-                    {/*    >*/}
-                    {/*        <Text style={styles.buttonEditProfileText}>Cancel</Text>*/}
-                    {/*    </TouchableOpacity>*/}
 
-                    {/*    <TouchableOpacity*/}
-                    {/*        onPress={handleSubmit}*/}
-                    {/*        style={styles.buttonEditProfileContainer}*/}
-                    {/*    >*/}
-                    {/*        <Text style={styles.buttonEditProfileText}>Done</Text>*/}
-                    {/*    </TouchableOpacity>*/}
-                    {/*</View>*/}
+                    <View style={styles.inputBox}>
+                        <Text style={styles.text}>Username:</Text>
+                        <TextInput
 
-                    <TextInput
-                        onChangeText={handleChange('name')}
-                        onBlur={handleBlur('name')}
-                        value={values.name}
-                    />
-                    <TextInput
-                        onChangeText={handleChange('bio')}
-                        onBlur={handleBlur('bio')}
-                        value={values.bio}
-                    />
+                            onChangeText={handleChange('username')}
+                            onBlur={handleBlur('username')}
+                            placeholder="Username"
+                            value={values.username}
+                        />
+                    </View>
 
-                    <Text style={styles.textPrivateInformation}>
-                        Private information
-                    </Text>
+                    <View style={styles.inputBox}>
+                        <Text style={styles.text}>Full name:</Text>
+                        <TextInput
+                            onChangeText={handleChange('fullName')}
+                            onBlur={handleBlur('fullName')}
+                            placeholder="Full name"
+                            value={values.fullName}
+                        />
+                    </View>
 
-                    <TextInput
-                        onChangeText={handleChange('email')}
-                        onBlur={handleBlur('email')}
-                        value={values.email}
-                    />
-                    <TextInput
-                        onChangeText={handleChange('gender')}
-                        onBlur={handleBlur('gender')}
-                        value={values.gender}
-                    />
+                    <View style={styles.inputBox}>
+                        <Text style={styles.text}>Bio:</Text>
+                        <TextInput
+                            onChangeText={handleChange('bio')}
+                            onBlur={handleBlur('bio')}
+                            placeholder="Bio"
+                            value={values.bio}
+                        />
+                    </View>
+
+                    <View style={styles.inputBox}>
+                        <Text style={styles.text}>Email:</Text>
+                        <TextInput
+                            onChangeText={handleChange('email')}
+                            onBlur={handleBlur('email')}
+                            placeholder="Email"
+                            value={values.email}
+                        />
+                    </View>
+
+                    <TouchableOpacity
+                        style={styles.submitButton}
+                        onPress={handleSubmit}
+                    >
+                        <Text style={styles.submitButtonText}>Submit</Text>
+                    </TouchableOpacity>
                 </View>
             )}
         </Formik>
@@ -65,21 +81,24 @@ export default function ProfileEditing() {
 }
 
 const styles = StyleSheet.create({
-    buttonEditProfileContainer: {
-        justifyContent: "space-around",
+    inputBox: {
+        marginLeft: 10,
         flexDirection: "row",
-        margin: 20,
-        borderRadius: 5,
+        alignItems: "center",
     },
-    buttonEditProfileText: {
+
+    text: {
+        color: "#3f3f3f",
+        fontSize: 15
+    },
+
+    submitButton: {
+        margin: 10,
+    },
+
+    submitButtonText: {
+        color: "#3f3f3f",
         fontSize: 15,
-        color: "#000",
-        fontWeight: "bold",
-        alignSelf: "center",
-    },
-    textPrivateInformation: {
-        margin: 12,
-        fontSize: 18,
-        color: "#000",
+        fontWeight: "bold"
     }
 })

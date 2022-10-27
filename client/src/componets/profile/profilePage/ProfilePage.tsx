@@ -1,28 +1,75 @@
-import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from "react-native";
+import React, {useEffect} from 'react';
+import {Image, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import Navbar from "../../navbar/Navbar";
 import {NativeStackScreenProps} from "@react-navigation/native-stack";
 import {StackParamList} from "../../../../App";
+import users from "../../../store/users";
+import {observer} from "mobx-react-lite";
+import {Post} from "../../../models/Post";
 
 export type Props = NativeStackScreenProps<StackParamList, 'ProfilePage'>;
 
+const ProfilePage: React.FC<Props> = observer((props: Props) => {
+    const user = users.userData
 
-export default function ProfilePage(props: Props) {
+    useEffect(() => {
+        users.getUser()
+            .catch(console.error);
+    }, [])
 
     return (
         <View style={styles.body}>
             <View style={styles.wrapper}>
+
+                <View style={styles.userInfo}>
+                    <View style={{alignItems: "center"}}>
+                        <Text style={styles.username}>
+                            {user?.username}
+                        </Text>
+                    </View>
+
+                    <Image
+                        style={styles.profileImage}
+                        source={{
+                            uri: user?.avatarUrl,
+                        }}
+                    />
+
+                    <Text style={{fontSize: 16, color: "#000000"}}>
+                        {user?.fullName}
+                    </Text>
+
+                    <Text style={{fontSize: 15, color: "#7c7c7c"}}>
+                        {user?.bio}
+                    </Text>
+                </View>
+
                 <View style={styles.main}>
-                   <View>
-                       <TouchableOpacity
-                           onPress={() => {
-                               props.navigation.navigate('ProfileEditing');
-                           }}
-                           style={styles.buttonEditProfileContainer}
-                       >
-                           <Text style={styles.buttonEditProfileText}>Edit profile</Text>
-                       </TouchableOpacity>
-                   </View>
+                    <View>
+                        <TouchableOpacity
+                            onPress={() => {
+                                props.navigation.navigate('ProfileEditing');
+                            }}
+                            style={styles.buttonEditProfileContainer}
+                        >
+                            <Text style={styles.buttonEditProfileText}>Edit profile</Text>
+                        </TouchableOpacity>
+                    </View>
+
+                    <ScrollView>
+                        <View style={styles.postList}>
+                            {user?.posts.map((post: Post) => (
+                                <Image
+                                    key={post._id}
+                                    style={{width: 120, height: 120, margin: 5}}
+                                    source={{
+                                        uri: post.imageUrl,
+                                    }}
+                                />
+                            ))}
+                        </View>
+                    </ScrollView>
+
                 </View>
 
                 <View style={styles.navbar}>
@@ -31,9 +78,29 @@ export default function ProfilePage(props: Props) {
             </View>
         </View>
     );
-}
+});
 
 const styles = StyleSheet.create({
+    postList: {
+        justifyContent: "center",
+        flexDirection: "row",
+    },
+    userInfo: {
+        marginTop: 20,
+        marginLeft: 20
+    },
+    username: {
+        fontSize: 18,
+        fontWeight: "bold",
+        color: "#000",
+    },
+    profileImage: {
+        width: 80,
+        height: 80,
+        borderRadius: 40,
+        backgroundColor: "#a1a1a1",
+        marginBottom: 15
+    },
     buttonBox: {
         justifyContent: "space-around",
         flexDirection: "row",
@@ -43,7 +110,7 @@ const styles = StyleSheet.create({
     },
     wrapper: {
         minHeight: "100%",
-        flexDirection: "column",
+
     },
     main: {
         flexGrow: 1,
@@ -67,3 +134,5 @@ const styles = StyleSheet.create({
         alignSelf: "center",
     }
 })
+
+export default ProfilePage

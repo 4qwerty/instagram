@@ -11,35 +11,14 @@ import storage from '@react-native-firebase/storage';
 import * as ImagePicker from 'react-native-image-picker';
 import {useCallback, useState} from 'react';
 import {Post} from "../../../models/Post";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import jwt_decode from "jwt-decode";
+import users from "../../../store/users"
+import { observer } from 'mobx-react-lite'
 
-interface DecodedToken {
-    "exp": number,
-    "iat": number,
-    "id": string
-}
-
-export default function CreatePost() {
+const CreatePost: React.FC = observer(() => {
     const [response, setResponse] = useState<any>(null);
     const [inputValue, setInputValue] = useState('');
-    const [userId, setUserId] = useState('')
+    const userId = users.userId
     const includeExtra = true;
-
-    const getUserId = async () => {
-        try {
-            const token = await AsyncStorage.getItem('@storage_Key')
-            if (token != null) {
-                const decoded: DecodedToken = jwt_decode(token);
-                setUserId(decoded.id);
-            }
-
-        } catch(e) {
-            console.log(e)
-        }
-    }
-
-    getUserId() // переробити
 
     const submitPost = async (data: Post) => {
         const uploadUir = response.assets[0].uri;
@@ -47,14 +26,12 @@ export default function CreatePost() {
         const storageRef = storage().ref(`photos/${fileName}`);
         await storageRef.putFile(uploadUir);
 
-        console.log(userId)
-
         const url = await storageRef.getDownloadURL()
             .catch((error: any) => {
-            console.log(error)
+                console.log(error)
             });
 
-        await fetch(`https://6aea-185-244-169-55.eu.ngrok.io/posts/${userId}`, {
+        await fetch(`https://d11b-185-244-169-80.eu.ngrok.io/posts/${userId}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -64,7 +41,6 @@ export default function CreatePost() {
             .then((response) => response.json())
             .then((data) => {
                 console.log('Success:', data);
-
                 setResponse('')
                 setInputValue('')
                 showAlert()
@@ -167,7 +143,7 @@ export default function CreatePost() {
             </TouchableOpacity>
         </SafeAreaView>
     );
-}
+})
 
 const styles = StyleSheet.create({
     buttonSetImageContainer: {
@@ -216,3 +192,5 @@ const styles = StyleSheet.create({
         width: 200,
     }
 });
+
+export default CreatePost

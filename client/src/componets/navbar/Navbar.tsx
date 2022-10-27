@@ -37,7 +37,10 @@ export default function Navbar(props: any) {
                     props.navigation.navigate('ProfilePage');
                 }}
             >
-                <Image source={require('../../assets/icons/Ellipse.png')}/>
+                <Image
+                    source={require('../../assets/icons/user.png')}
+                    style={{width: 28, height: 28}}
+                />
             </TouchableOpacity>
         </View>
     );
