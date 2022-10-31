@@ -10,7 +10,6 @@ const PostList: React.FC = observer(() => {
 
     useEffect(() => {
         posts.fetchPostsList()
-            .catch(console.error);
     }, [])
 
     if (postsData.length === 0) {

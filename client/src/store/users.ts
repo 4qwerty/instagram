@@ -58,19 +58,15 @@ class User {
         }
     }
 
-    async getUser() {
-        try {
-            fetch(`${API_URL}/getUserPosts/${this.userId}`)
-                .then(res => res.json())
-                .then(data => {
-                    this.userData = data[0]
-                })
-                .catch(function(err) {
-                    console.log(err);
-                });
-        } catch (e) {
-            console.log(e)
-        }
+    getUser() {
+        fetch(`${API_URL}/getUserPosts/${this.userId}`)
+            .then(res => res.json())
+            .then(data => {
+                this.userData = data[0]
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
     }
 
     async putUsers(values: any) {

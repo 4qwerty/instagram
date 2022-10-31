@@ -19,8 +19,8 @@ class Posts {
 
     posts: PostModel[] = []
 
-     async fetchPostsList() {
-        await fetch(`${API_URL}/getAllPosts`)
+     fetchPostsList() {
+        fetch(`${API_URL}/getAllPosts`)
             .then(res => res.json())
             .then(data => {
                 this.posts = data
@@ -37,11 +37,7 @@ class Posts {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({...data, imageUrl: url}),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-            })
-            .catch((error) => {
+        }).catch((error) => {
                 console.error('Error:', error);
             });
     }

@@ -14,7 +14,7 @@ const ProfilePage: React.FC<Props> = observer((props: Props) => {
 
     useEffect(() => {
         users.getUser()
-            .catch(console.error);
+        
     }, [])
 
     return (
