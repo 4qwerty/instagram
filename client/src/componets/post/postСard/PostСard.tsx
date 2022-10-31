@@ -21,6 +21,7 @@ export default function PostCard(props: { data: Post; }) {
                 <Text style={{marginLeft: 6, fontWeight: "bold", color: "#000"}}>
                     {dataPosts.userId?.username}
                 </Text>
+
             </View>
             <View>
                 <Image
@@ -37,6 +38,14 @@ export default function PostCard(props: { data: Post; }) {
             <View style={styles.postText}>
                 <Text>
                     {dataPosts.message}
+                </Text>
+
+                <Text style={{fontSize: 10}}>
+                    {dataPosts.createdAt
+                        ?.split('.', 1)[0]
+                        .split('T')
+                        .join(' ')
+                    }
                 </Text>
             </View>
 
@@ -74,6 +83,7 @@ const styles = StyleSheet.create({
         marginLeft: 16
     },
     postText: {
+        justifyContent: "space-around",
         color: "#000",
         marginLeft:12,
         marginTop: 6

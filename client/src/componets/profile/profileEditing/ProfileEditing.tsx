@@ -93,52 +93,94 @@ export default function ProfileEditing(props: Props) {
 
                     <View
                         style={{
-                            borderBottomColor: '#3b3b3b',
-                            borderBottomWidth: 0.5,
+                            borderBottomColor: '#afafaf',
+                            borderBottomWidth: 1,
                         }}
                     />
 
                     <View style={styles.inputBox}>
-                        <Text style={styles.text}>Username:</Text>
-                        <TextInput
+                        <View style={styles.textColum}>
+                            <Text style={styles.text}>Username:</Text>
+                        </View>
 
-                            onChangeText={handleChange('username')}
-                            onBlur={handleBlur('username')}
-                            placeholder="Username"
-                            value={values.username}
-                        />
+                        <View style={styles.inputColum}>
+                            <TextInput
+                                onChangeText={handleChange('username')}
+                                onBlur={handleBlur('username')}
+                                placeholder="Username"
+                                value={values.username}
+                            />
+                            <View
+                                style={{
+                                    borderBottomColor: '#afafaf',
+                                    borderBottomWidth: 1,
+                                }}
+                            />
+                        </View>
                     </View>
 
                     <View style={styles.inputBox}>
-                        <Text style={styles.text}>Full name:</Text>
-                        <TextInput
-                            onChangeText={handleChange('fullName')}
-                            onBlur={handleBlur('fullName')}
-                            placeholder="Full name"
-                            value={values.fullName}
-                        />
+                        <View style={styles.textColum}>
+                            <Text style={styles.text}>Full name:</Text>
+                        </View>
+
+                        <View style={styles.inputColum}>
+                            <TextInput
+                                onChangeText={handleChange('fullName')}
+                                onBlur={handleBlur('fullName')}
+                                placeholder="Full name"
+                                value={values.fullName}
+                            />
+                            <View
+                                style={{
+                                    borderBottomColor: '#afafaf',
+                                    borderBottomWidth: 1,
+                                }}
+                            />
+                        </View>
                     </View>
 
                     <View style={styles.inputBox}>
-                        <Text style={styles.text}>Bio:</Text>
-                        <TextInput
-                            onChangeText={handleChange('bio')}
-                            onBlur={handleBlur('bio')}
-                            placeholder="Bio"
-                            value={values.bio}
-                        />
+                        <View style={styles.textColum}>
+                            <Text style={styles.text}>Bio:</Text>
+                        </View>
+
+                        <View style={styles.inputColum}>
+                            <TextInput
+                                onChangeText={handleChange('bio')}
+                                onBlur={handleBlur('bio')}
+                                placeholder="Bio"
+                                value={values.bio}
+                            />
+                            <View
+                                style={{
+                                    borderBottomColor: '#afafaf',
+                                    borderBottomWidth: 1,
+                                }}
+                            />
+                        </View>
                     </View>
 
                     <View style={styles.inputBox}>
-                        <Text style={styles.text}>Email:</Text>
-                        <TextInput
-                            onChangeText={handleChange('email')}
-                            onBlur={handleBlur('email')}
-                            placeholder="Email"
-                            value={values.email}
-                        />
-                    </View>
+                        <View style={styles.textColum}>
+                            <Text style={styles.text}>Email:</Text>
+                        </View>
 
+                        <View style={styles.inputColum}>
+                            <TextInput
+                                onChangeText={handleChange('email')}
+                                onBlur={handleBlur('email')}
+                                placeholder="Email"
+                                value={values.email}
+                            />
+                            <View
+                                style={{
+                                    borderBottomColor: '#afafaf',
+                                    borderBottomWidth: 1,
+                                }}
+                            />
+                        </View>
+                    </View>
 
                     <TouchableOpacity
                         style={styles.submitButton}
@@ -153,7 +195,14 @@ export default function ProfileEditing(props: Props) {
 }
 
 const styles = StyleSheet.create({
-
+    textColum: {
+        marginLeft: 16,
+        width: "30%",
+        textAlign: "right"
+    },
+    inputColum: {
+        width: "70%",
+    },
     profileImage: {
         width: 90,
         height: 90,
@@ -165,7 +214,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
     },
     inputBox: {
-        marginLeft: 20,
         flexDirection: "row",
         alignItems: "center",
     },
