@@ -7,7 +7,6 @@ import ProfilePage from "./src/componets/profile/profilePage/ProfilePage";
 import ProfileEditing from "./src/componets/profile/profileEditing/ProfileEditing";
 import Login from "./src/componets/auth/login/Login";
 import SingUp from "./src/componets/auth/singUp/SingUp";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export type StackParamList = {
     Login: undefined;
@@ -16,10 +15,6 @@ export type StackParamList = {
     CreatePost: undefined;
     ProfilePage: undefined;
     ProfileEditing: undefined
-    // Country: {
-    //     countryName: string,
-    //     countryFlag: string
-    // };
 };
 
 const Stack = createNativeStackNavigator<StackParamList>();
@@ -32,12 +27,12 @@ export default function App() {
                 <Stack.Screen
                     name='Login'
                     component={Login}
-                    options={{ title: 'Instagram' }}
+                    options={{ title: 'Login' }}
                 />
                 <Stack.Screen
                     name='SingUp'
                     component={SingUp}
-                    options={{ title: 'Instagram' }}
+                    options={{ title: 'Sing up' }}
                 />
                 <Stack.Screen
                     name='Homepage'
@@ -51,10 +46,20 @@ export default function App() {
                 <Stack.Screen
                     name='ProfilePage'
                     component={ProfilePage}
+                    options={{
+                        title: 'Profile',
+                        presentation: 'transparentModal'
+
+                    }}
                 />
                 <Stack.Screen
                     name='ProfileEditing'
                     component={ProfileEditing}
+                    options={{
+                        title: 'Edit',
+                        presentation: 'transparentModal'
+
+                    }}
                 />
             </Stack.Navigator>
         </NavigationContainer>

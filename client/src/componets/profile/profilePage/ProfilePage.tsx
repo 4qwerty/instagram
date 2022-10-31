@@ -61,7 +61,7 @@ const ProfilePage: React.FC<Props> = observer((props: Props) => {
                             {user?.posts.map((post: Post) => (
                                 <Image
                                     key={post._id}
-                                    style={{width: 120, height: 120, margin: 5}}
+                                    style={{width: 120, height: 120, margin: 5, flex: 1}}
                                     source={{
                                         uri: post.imageUrl,
                                     }}
@@ -69,7 +69,6 @@ const ProfilePage: React.FC<Props> = observer((props: Props) => {
                             ))}
                         </View>
                     </ScrollView>
-
                 </View>
 
                 <View style={styles.navbar}>
@@ -82,6 +81,7 @@ const ProfilePage: React.FC<Props> = observer((props: Props) => {
 
 const styles = StyleSheet.create({
     postList: {
+        flex: 3,
         justifyContent: "center",
         flexDirection: "row",
     },
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
         width: 80,
         height: 80,
         borderRadius: 40,
-        backgroundColor: "#a1a1a1",
+        backgroundColor: "#d7d7d7",
         marginBottom: 15
     },
     buttonBox: {
@@ -107,10 +107,10 @@ const styles = StyleSheet.create({
     },
     body: {
         height: "100%",
+        backgroundColor: "#fff"
     },
     wrapper: {
         minHeight: "100%",
-
     },
     main: {
         flexGrow: 1,

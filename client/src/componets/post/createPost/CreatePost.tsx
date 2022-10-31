@@ -11,13 +11,12 @@ import storage from '@react-native-firebase/storage';
 import * as ImagePicker from 'react-native-image-picker';
 import {useCallback, useState} from 'react';
 import {Post} from "../../../models/Post";
-import users from "../../../store/users"
 import { observer } from 'mobx-react-lite'
+import posts from "../../../store/posts";
 
 const CreatePost: React.FC = observer(() => {
     const [response, setResponse] = useState<any>(null);
     const [inputValue, setInputValue] = useState('');
-    const userId = users.userId
     const includeExtra = true;
 
     const submitPost = async (data: Post) => {
@@ -31,23 +30,12 @@ const CreatePost: React.FC = observer(() => {
                 console.log(error)
             });
 
-        await fetch(`https://d11b-185-244-169-80.eu.ngrok.io/posts/${userId}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({...data, imageUrl: url}),
+        await posts.createPosts(data, url).then(() => {
+            setResponse('')
+            setInputValue('')
+            showAlert()
+            posts.fetchPostsList()
         })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log('Success:', data);
-                setResponse('')
-                setInputValue('')
-                showAlert()
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
     }
 
     const onButtonPress = useCallback(
@@ -181,7 +169,6 @@ const styles = StyleSheet.create({
         width: 415,
         height: 400,
     },
-
     textAreaContainer: {
         borderColor: "#595959",
         borderWidth: 1,

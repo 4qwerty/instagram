@@ -25,7 +25,7 @@ class PostController {
 
     async getAll(req, res) {
         try {
-            let foundUser = await User.find().populate("posts")
+            let foundUser = await Post.find().populate("userId")
             return res.json(foundUser);
         } catch (e) {
             res.status(500).json(e)
@@ -34,7 +34,7 @@ class PostController {
 
     async getAllPosts(req, res) {
         try {
-            const posts = await PostService.getAll();
+            const posts = await Post.find().populate("userId")
             return res.json(posts);
         } catch (e) {
             res.status(500).json(e)

@@ -1,16 +1,15 @@
-import React, {useEffect, useState} from 'react';
-import {Alert, ScrollView, StyleSheet, Text, View} from "react-native";
+import React from 'react';
+import {StyleSheet, View} from "react-native";
 import Navbar from "../navbar/Navbar";
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {StackParamList} from "../../../App";
 import PostList from "../post/postList/PostList";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export type Props = NativeStackScreenProps<StackParamList, 'Homepage'>;
 
 export default function Homepage(props: Props) {
     return (
-        <View style={{flex: 1}}>
+        <View style={styles.conteiner}>
             <PostList/>
 
             <View style={styles.navbar}>
@@ -21,6 +20,11 @@ export default function Homepage(props: Props) {
 }
 
 const styles = StyleSheet.create({
+    conteiner: {
+        flex: 1,
+        height: "100%",
+        backgroundColor: "#fff"
+    },
     buttonBox: {
         justifyContent: "space-around",
         flexDirection: "row",

@@ -6,19 +6,18 @@ import {StackParamList} from "../../../../App";
 import {Formik} from "formik";
 import {observer} from "mobx-react-lite";
 import users from "../../../store/users";
+import {TOKEN_KEY} from "../../../consts";
 
 export type Props = NativeStackScreenProps<StackParamList, 'Login'>;
-
-interface Login {
-    username: string,
-    password: string
-}
-
 const Login: React.FC<Props> = observer((props: Props) => {
-    const storeData = async (value: string) => {
+
+    const loginAccount = async (values: any) => {
+        await users.login(values)
         try {
-            await AsyncStorage.setItem('@storage_Key', value)
-            await getData()
+            const token = await AsyncStorage.setItem(TOKEN_KEY, users.token)
+            if(token !== null) {
+                props.navigation.navigate('Homepage');
+            }
             await users.getUserId()
         } catch (e) {
             showAlert()
@@ -33,39 +32,10 @@ const Login: React.FC<Props> = observer((props: Props) => {
         );
     }
 
-    const getData = async () => {
-        try {
-            const value = await AsyncStorage.getItem('@storage_Key')
-
-            if(value !== null) {
-                props.navigation.navigate('Homepage');
-            }
-        } catch(e) {
-            console.log(e)
-        }
-    }
-
-    const fetchLogin = async (values: Login) => {
-        await fetch('https://d11b-185-244-169-80.eu.ngrok.io/auth/login', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(values),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                storeData(data.token)
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-    }
-
     return (
-        <View style={styles.conteiner}>
-            <View style={styles.wrapper}>
-                <View style={styles.main}>
+        <View style={stylesAuth.conteiner}>
+            <View style={stylesAuth.wrapper}>
+                <View style={stylesAuth.main}>
                     <View style={{alignItems: "center"}}>
                         <Image
                             source={require('../../../assets/img/Instagram_logo.png')}
@@ -79,7 +49,7 @@ const Login: React.FC<Props> = observer((props: Props) => {
 
                     <Formik
                         initialValues={{ username: '', password: ''}}
-                        onSubmit={values => fetchLogin(values)}
+                        onSubmit={values => loginAccount(values)}
                     >
                         {({ handleChange, handleBlur, handleSubmit, values }) => (
                             <View>
@@ -88,20 +58,20 @@ const Login: React.FC<Props> = observer((props: Props) => {
                                     onBlur={handleBlur('username')}
                                     placeholder="Username"
                                     value={values.username}
-                                    style={styles.input}
+                                    style={stylesAuth.input}
                                 />
                                 <TextInput
                                     onChangeText={handleChange('password')}
                                     onBlur={handleBlur('password')}
                                     placeholder="Password"
                                     value={values.password}
-                                    style={styles.input}
+                                    style={stylesAuth.input}
                                     secureTextEntry={true}/>
                                 <TouchableOpacity
                                     onPress={handleSubmit}
-                                    style={styles.buttonEditProfileContainer}
+                                    style={stylesAuth.buttonEditProfileContainer}
                                 >
-                                    <Text style={styles.buttonEditProfileText}>Log in</Text>
+                                    <Text style={stylesAuth.buttonEditProfileText}>Log in</Text>
                                 </TouchableOpacity>
                             </View>
                         )}
@@ -109,13 +79,13 @@ const Login: React.FC<Props> = observer((props: Props) => {
                 </View>
 
 
-                <View style={styles.footer}>
+                <View style={stylesAuth.footer}>
                     <TouchableOpacity
                         onPress={() => {
                             props.navigation.navigate('SingUp');
                         }}
                     >
-                        <View style={styles.singUp}>
+                        <View style={stylesAuth.singUp}>
                             <Text>
                                 Don't have an account?
                             </Text>
@@ -133,10 +103,11 @@ const Login: React.FC<Props> = observer((props: Props) => {
     );
 })
 
-const styles = StyleSheet.create({
+export const stylesAuth = StyleSheet.create({
     conteiner: {
         flex: 1,
         height: "100%",
+        backgroundColor: "#fff"
     },
     wrapper: {
         minHeight: "100%",

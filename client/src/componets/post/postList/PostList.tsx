@@ -3,9 +3,10 @@ import {ActivityIndicator, FlatList, StyleSheet, View} from "react-native";
 import PostCard from "../postСard/PostСard";
 import posts from "../../../store/posts"
 import {observer} from "mobx-react-lite";
+import {Post} from "../../../models/Post";
 
 const PostList: React.FC = observer(() => {
-    const postsData = posts.posts
+    const postsData: Post[] = posts.posts
 
     useEffect(() => {
         posts.fetchPostsList()

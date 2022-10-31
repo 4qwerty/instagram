@@ -8,6 +8,20 @@ export default function PostCard(props: { data: Post; }) {
 
     return (
         <View>
+            <View style={styles.headPost}>
+                <Image
+                    source={{uri: dataPosts.userId?.avatarUrl}}
+                        style={{
+                            backgroundColor: '#b7b7b7',
+                            borderRadius: 20,
+                            height: 25,
+                            width: 25
+                        }}
+                />
+                <Text style={{marginLeft: 6, fontWeight: "bold", color: "#000"}}>
+                    {dataPosts.userId?.username}
+                </Text>
+            </View>
             <View>
                 <Image
                     source={{
@@ -45,6 +59,11 @@ export default function PostCard(props: { data: Post; }) {
 }
 
 const styles = StyleSheet.create({
+    headPost: {
+        flexDirection: "row",
+        alignItems: "center",
+        margin: 5
+    },
     buttonBox: {
         flex: 1,
         marginTop: 12,

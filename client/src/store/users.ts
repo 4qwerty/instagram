@@ -2,6 +2,8 @@ import { makeAutoObservable } from 'mobx'
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import jwt_decode from "jwt-decode";
 import {Post} from "../models/Post";
+import {API_URL, TOKEN_KEY} from "../consts";
+import Login from "../componets/auth/login/Login";
 
 interface DecodedToken {
     "exp": number,
@@ -21,7 +23,21 @@ interface UserModel {
     posts: Post[],
 }
 
+interface Login {
+    username: string,
+    password: string
+}
+
+interface SingUp {
+    email: string,
+    username: string,
+    fullName: string,
+    password: string
+}
+
+
 class User {
+    token = ''
     userId = ''
     userData: UserModel | null = null
 
@@ -31,7 +47,7 @@ class User {
 
     async getUserId() {
         try {
-            const token = await AsyncStorage.getItem('@storage_Key')
+            const token = await AsyncStorage.getItem(TOKEN_KEY)
             if (token != null) {
                 const decoded: DecodedToken = jwt_decode(token);
                 this.userId = decoded.id;
@@ -44,7 +60,7 @@ class User {
 
     async getUser() {
         try {
-            fetch(`https://d11b-185-244-169-80.eu.ngrok.io/getUserPosts/${this.userId}`)
+            fetch(`${API_URL}/getUserPosts/${this.userId}`)
                 .then(res => res.json())
                 .then(data => {
                     this.userData = data[0]
@@ -58,7 +74,7 @@ class User {
     }
 
     async putUsers(values: any) {
-        await fetch(`https://d11b-185-244-169-80.eu.ngrok.io/user/put/${this.userId}`, {
+        await fetch(`${API_URL}/user/put/${this.userId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -68,6 +84,36 @@ class User {
             .catch((error) => {
                 console.error('Error:', error);
             });
+    }
+
+    async login(values: Login) {
+        await fetch(`${API_URL}/auth/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                this.token = data.token
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+
+    async sinUp(values: SingUp) {
+       await fetch(`${API_URL}/auth/registration`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(values),
+        })
+           .catch((error) => {
+           console.error('Error:', error);
+       });
     }
 }
 
